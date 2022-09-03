@@ -5,11 +5,11 @@ import GamesData from "./pages/GamesData";
 
 function App() {
   return (
-    <Container>
+    <div className="App">
       <Row>
         <GamesData />
       </Row>
-    </Container>
+    </div>
   );
 }
 

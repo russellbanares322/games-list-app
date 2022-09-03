@@ -10,7 +10,7 @@ const GamesData = () => {
 
   return (
     <>
-      <h1 className="text-center my-5">Games</h1>
+      <h1 className="text-center mt-3 text-white">Games</h1>
       <Col className="d-flex justify-content-center">
         <Row>
           {isLoading ? (
