@@ -8,10 +8,17 @@ const GamesDisplay = ({ data }) => {
         <Card className="mt-5 card" style={{ width: "18rem" }}>
           <Card.Img variant="top" src={data.thumbnail} />
           <Card.Body>
-            <Card.Title>{data.title}</Card.Title>
-            <Card.Text>{data.genre}</Card.Text>
+            <Card.Title className="text-center">{data.title}</Card.Title>
+            <Card.Text className="text-center">
+              <small>
+                Category:{" "}
+                <span style={{ fontWeight: "bold" }}>{data.genre}</span>
+              </small>
+            </Card.Text>
             <small>
-              <Badge variant="primary">{data.developer}</Badge>
+              <Badge bg="warning" className="text-dark mb-3">
+                {data.developer}
+              </Badge>
             </small>
             <br />
             <Card.Link href={data.game_url}>
