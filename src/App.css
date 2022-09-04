@@ -10,7 +10,5 @@
 box-shadow: -1px 7px 8px -3px rgba(66, 68, 90, 1);
 }
 .App {
-  background-image: url("./image/bg.jpg");
-  background-size:contain;
-  margin: 0;
+  background-color: gray;
 }
