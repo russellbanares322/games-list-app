@@ -1,6 +1,10 @@
 import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
-const { REACT_APP_GAME_API_KEY } = process.env;
+const {
+  REACT_APP_GAME_API_KEY,
+  REACT_APP_GAME_HOST_API_KEY,
+  REACT_APP_GAME_API_LINK,
+} = process.env;
 
 export const GameContext = createContext();
 
@@ -12,10 +16,10 @@ export const GameContextProvider = (props) => {
     setIsLoading(true);
     const options = {
       method: "GET",
-      url: "https://free-to-play-games-database.p.rapidapi.com/api/games",
+      url: REACT_APP_GAME_API_LINK,
       headers: {
         "X-RapidAPI-Key": REACT_APP_GAME_API_KEY,
-        "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
+        "X-RapidAPI-Host": REACT_APP_GAME_HOST_API_KEY,
       },
     };
 
