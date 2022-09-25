@@ -4,11 +4,37 @@
 * {
   font-family: 'Prompt', sans-serif;
 }
-.card {
-  -webkit-box-shadow: -1px 7px 8px -3px rgba(66, 68, 90, 1);
--moz-box-shadow: -1px 7px 8px -3px rgba(66, 68, 90, 1);
-box-shadow: -1px 7px 8px -3px rgba(66, 68, 90, 1);
+.card_dark {
+  background-color: #211D3B !important;
+  -webkit-box-shadow: -12px 11px 3px -7px rgba(255, 255, 255, 1);
+  -moz-box-shadow: -12px 11px 3px -7px rgba(255, 255, 255, 1);
+  box-shadow: -12px 11px 3px -7px rgba(255, 255, 255, 1);
+  transition: 0.4s ease-in-out;
 }
-.App {
-  background-color: gray;
+.card_light {
+  background-color: #FFFFFF !important;
+  -webkit-box-shadow: -12px 11px 3px -7px #211D3B ;
+  -moz-box-shadow: -12px 11px 3px -7px #211D3B ;
+  box-shadow: -12px 11px 3px -7px #211D3B ;
+  transition: 0.4s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.title_text_dark {
+  text-shadow: -3px 1px 2px rgb(0, 0, 0);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color:#211D3B;
+}
+.title_text_light {
+  text-shadow: -3px 1px 2px rgba(66, 68, 90, 1);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color:#F3F3F3;
+
 }

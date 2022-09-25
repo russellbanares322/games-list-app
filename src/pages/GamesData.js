@@ -1,16 +1,39 @@
 import React, { useContext, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import { PacmanLoader } from "react-spinners";
 import { GameContext } from "../Context/GameContext";
 import GamesDisplay from "./GamesDisplay";
+import { MdModeNight, MdLightMode } from "react-icons/md";
 
 const GamesData = () => {
-  const { data, isLoading } = useContext(GameContext);
+  const { data, isLoading, handleToggleTheme, isDarkMode } =
+    useContext(GameContext);
   const [color] = useState("#EAE800");
 
   return (
     <>
-      <h1 className="text-center mt-3 text-white">Games</h1>
+      <div className="d-flex justify-content-end pt-4">
+        <Button
+          variant={isDarkMode ? "dark" : "light"}
+          style={{ borderRadius: "5rem" }}
+          onClick={handleToggleTheme}
+        >
+          {isDarkMode ? (
+            <MdModeNight size={25} color="dark" />
+          ) : (
+            <MdLightMode size={25} color="dark" />
+          )}
+        </Button>
+      </div>
+      <h1
+        className={
+          isDarkMode
+            ? "text-center pt-5 title_text_dark"
+            : "text-center pt-5 title_text_light"
+        }
+      >
+        Games List
+      </h1>
       <Col className="d-flex justify-content-center">
         <Row>
           {isLoading ? (

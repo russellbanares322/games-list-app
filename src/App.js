@@ -1,15 +1,22 @@
 import "./App.css";
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
 import GamesData from "./pages/GamesData";
+import { GameContext } from "./Context/GameContext";
 
 function App() {
+  const { isDarkMode } = useContext(GameContext);
   return (
-    <div className="App">
-      <Row>
-        <GamesData />
-      </Row>
-    </div>
+    <Container
+      fluid
+      style={
+        isDarkMode
+          ? { backgroundColor: "#DADCE0" }
+          : { backgroundColor: "#080325" }
+      }
+    >
+      <GamesData />
+    </Container>
   );
 }
 

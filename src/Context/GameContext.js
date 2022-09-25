@@ -11,12 +11,17 @@ export const GameContext = createContext();
 export const GameContextProvider = (props) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const handleToggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   useEffect(() => {
     setIsLoading(true);
     const options = {
       method: "GET",
-      url: REACT_APP_GAME_API_LINK,
+      url: "https://free-to-play-games-database.p.rapidapi.com/api/games",
       headers: {
         "X-RapidAPI-Key": REACT_APP_GAME_API_KEY,
         "X-RapidAPI-Host": REACT_APP_GAME_HOST_API_KEY,
@@ -35,7 +40,9 @@ export const GameContextProvider = (props) => {
   }, []);
 
   return (
-    <GameContext.Provider value={{ data, isLoading }}>
+    <GameContext.Provider
+      value={{ data, isLoading, isDarkMode, handleToggleTheme }}
+    >
       {props.children}
     </GameContext.Provider>
   );
