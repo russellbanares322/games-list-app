@@ -4,6 +4,17 @@
 * {
   font-family: 'Prompt', sans-serif;
 }
+.bg_light{
+  padding-bottom: 5rem;
+  background-image: url('./images/bg_light.svg');
+  background-size: cover;
+}
+.bg_dark{
+  padding-bottom: 5rem;
+  background-image: url('./images/bg_dark.svg');
+  background-size: cover;
+}
+
 .card_dark {
   background-color: #211D3B !important;
   -webkit-box-shadow: -12px 11px 3px -7px rgba(255, 255, 255, 1);
@@ -36,5 +47,69 @@
   font-weight: 600;
   letter-spacing: 2px;
   color:#F3F3F3;
+}
 
+/* Pagination */
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  margin-top: 3rem;
+  gap: 5px;
+}
+ul.pagination li a {
+  text-decoration: none;
+}
+
+
+.pagination .page_num_dark {
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: 400;
+  color:  #211D3B;
+}
+.pagination .page_num_light {
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: 400;
+  color: #F3F3F3;
+}
+
+.pagination .page_num_dark:hover {
+  background-color: #211D3B;
+  color: #F3F3F3;
+}
+.pagination .page_num_light:hover {
+  background-color: #211D3B;
+  
+}
+
+.pagination .page_active_light {
+  background-color: #211D3B;
+}
+.pagination .page_active_dark {
+  background-color: #211D3B;
+  color: #F3F3F3;
+}
+
+/* Media Queries */
+
+@media all and (max-width:500px){
+  .pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    gap: 1px;
+  }
+  .pagination .page_num {
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: 400;
+  }
 }

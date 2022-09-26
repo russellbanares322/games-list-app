@@ -7,14 +7,7 @@ import { GameContext } from "./Context/GameContext";
 function App() {
   const { isDarkMode } = useContext(GameContext);
   return (
-    <Container
-      fluid
-      style={
-        isDarkMode
-          ? { backgroundColor: "#DADCE0" }
-          : { backgroundColor: "#080325" }
-      }
-    >
+    <Container fluid className={isDarkMode ? "bg_light" : "bg_dark"}>
       <GamesData />
     </Container>
   );

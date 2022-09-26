@@ -31,6 +31,7 @@ export const GameContextProvider = (props) => {
     axios
       .request(options)
       .then((response) => {
+        console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       })
