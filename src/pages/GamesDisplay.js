@@ -13,8 +13,18 @@ const GamesDisplay = ({ data }) => {
             className={isDarkMode ? "my-5 card_light" : "my-5 card_dark"}
             style={
               isDarkMode
-                ? { width: "21rem", height: "600px", color: "#211D3B" }
-                : { width: "21rem", height: "600px", color: "#FFFFFF" }
+                ? {
+                    width: "21rem",
+                    height: "600px",
+                    color: "#211D3B",
+                    borderRadius: "2rem",
+                  }
+                : {
+                    width: "21rem",
+                    height: "600px",
+                    color: "#FFFFFF",
+                    borderRadius: "2rem",
+                  }
             }
           >
             <Card.Img variant="top" src={data.thumbnail} />

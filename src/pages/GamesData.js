@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
-import { PacmanLoader } from "react-spinners";
+import { Button, Col, Form, Row, Image } from "react-bootstrap";
+import { PacmanLoader, RingLoader } from "react-spinners";
 import { GameContext } from "../Context/GameContext";
 import GamesDisplay from "./GamesDisplay";
 import { MdModeNight, MdLightMode } from "react-icons/md";
 import ReactPaginate from "react-paginate";
+import logo from "../images/logo.png";
 
 const GamesData = () => {
   const { data, isLoading, handleToggleTheme, isDarkMode } =
@@ -14,20 +15,24 @@ const GamesData = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
+  const [loading, setLoading] = useState(false);
   const itemsPerPage = 6;
 
   //Pagination
 
   useEffect(() => {
+    setLoading(false);
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(data.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(data.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, data]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % data.length;
-
-    setItemOffset(newOffset);
+    setLoading(true);
+    setTimeout(() => {
+      const newOffset = (event.selected * itemsPerPage) % data.length;
+      setItemOffset(newOffset);
+    }, 1000);
   };
 
   return (
@@ -46,6 +51,9 @@ const GamesData = () => {
         </div>
       ) : (
         <>
+          <div>
+            <Image src={logo} className="logo" />
+          </div>
           <div className="d-flex justify-content-end pt-4">
             <Button
               variant={isDarkMode ? "dark" : "light"}
@@ -67,20 +75,22 @@ const GamesData = () => {
                 ? "text-center pt-5 title_text_dark"
                 : "text-center pt-5 title_text_light"
             }
-            style={{ fontSize: "3rem" }}
+            style={{ fontSize: "4rem" }}
           >
             Games List
           </h1>
           <div className="mx-auto d-flex justify-content-center pt-5">
-            <Col sm={4}>
+            <Col sm={5}>
               <Form>
                 <Form.Control
                   type="search"
                   placeholder="Search game..."
-                  className="me-2"
                   aria-label="Search"
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  style={{ borderRadius: "3rem" }}
+                  style={{
+                    borderRadius: "3rem",
+                    height: "2.8rem",
+                  }}
                 />
               </Form>
             </Col>
@@ -89,27 +99,37 @@ const GamesData = () => {
             <Col sm={12}>
               <Row>
                 <>
-                  {currentItems
-                    .filter((value) => {
-                      if (searchTerm === "") {
-                        return value;
-                      } else if (
-                        value.title
-                          .toLowerCase()
-                          .includes(searchTerm.toLocaleLowerCase()) ||
-                        value.genre
-                          .toLowerCase()
-                          .includes(searchTerm.toLocaleLowerCase()) ||
-                        value.developer
-                          .toLowerCase()
-                          .includes(searchTerm.toLocaleLowerCase())
-                      ) {
-                        return value;
-                      }
-                    })
-                    .map((gameData) => (
-                      <GamesDisplay data={gameData} key={gameData.id} />
-                    ))}
+                  {loading ? (
+                    <div className="d-flex justify-content-center my-5">
+                      <RingLoader size={80} color={color} />
+                    </div>
+                  ) : (
+                    <>
+                      {currentItems
+                        .filter((value) => {
+                          if (searchTerm === "") {
+                            return value;
+                          } else if (
+                            value.title
+                              .toLowerCase()
+                              .includes(searchTerm.toLocaleLowerCase()) ||
+                            value.genre
+                              .toLowerCase()
+                              .includes(searchTerm.toLocaleLowerCase()) ||
+                            value.developer
+                              .toLowerCase()
+                              .includes(searchTerm.toLocaleLowerCase())
+                          ) {
+                            return value;
+                          }
+                        })
+                        .map((gameData) => (
+                          <>
+                            <GamesDisplay data={gameData} key={gameData.id} />
+                          </>
+                        ))}
+                    </>
+                  )}
                 </>
               </Row>
             </Col>
