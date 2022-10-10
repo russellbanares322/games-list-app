@@ -86,7 +86,6 @@ ul.pagination li a {
 }
 .pagination .page_num_light:hover {
   background-color: #211D3B;
-  
 }
 
 .pagination .page_active_light {
@@ -95,6 +94,24 @@ ul.pagination li a {
 .pagination .page_active_dark {
   background-color: #211D3B;
   color: #F3F3F3;
+}
+/* Filter Button */
+.filter-container button{
+margin-top: 2rem;
+margin-right: 0.5rem;
+min-width: 5rem;
+padding: 0.5rem 1rem;
+border: none;
+background: white;
+color: rgb(65, 98, 168);
+border-radius: 1rem;
+border: 2px solid rgb(65, 98, 168);
+font-weight: bold;
+cursor: pointer;
+}
+button.active{
+  background: rgb(65, 98, 168);
+  color: white;
 }
 
 /* Media Queries */

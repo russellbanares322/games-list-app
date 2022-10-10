@@ -21,7 +21,7 @@ export const GameContextProvider = (props) => {
     setIsLoading(true);
     const options = {
       method: "GET",
-      url: "https://free-to-play-games-database.p.rapidapi.com/api/games",
+      url: REACT_APP_GAME_API_LINK,
       headers: {
         "X-RapidAPI-Key": REACT_APP_GAME_API_KEY,
         "X-RapidAPI-Host": REACT_APP_GAME_HOST_API_KEY,

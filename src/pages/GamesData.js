@@ -95,53 +95,51 @@ const GamesData = () => {
               </Form>
             </Col>
           </div>
-          <Col className="d-flex justify-content-center">
-            <Col sm={12}>
-              <Row>
-                <>
-                  {loading ? (
-                    <div className="d-flex justify-content-center my-5">
-                      <RingLoader size={80} color={color} />
-                    </div>
-                  ) : (
-                    <>
-                      {currentItems
-                        .filter((value) => {
-                          if (searchTerm === "") {
-                            return value;
-                          } else if (
-                            value.title
-                              .toLowerCase()
-                              .includes(searchTerm.toLocaleLowerCase()) ||
-                            value.genre
-                              .toLowerCase()
-                              .includes(searchTerm.toLocaleLowerCase()) ||
-                            value.developer
-                              .toLowerCase()
-                              .includes(searchTerm.toLocaleLowerCase())
-                          ) {
-                            return value;
-                          }
-                        })
-                        .map((gameData) => (
-                          <>
-                            <GamesDisplay data={gameData} key={gameData.id} />
-                          </>
-                        ))}
-                    </>
-                  )}
-                </>
-              </Row>
-            </Col>
-          </Col>
+          {loading ? (
+            <div className="d-flex justify-content-center my-5">
+              <RingLoader size={80} color={color} />
+            </div>
+          ) : (
+            <>
+              <Col className="d-flex justify-content-center">
+                <Col sm={12}>
+                  <Row>
+                    {currentItems
+                      .filter((value) => {
+                        if (searchTerm === "") {
+                          return value;
+                        } else if (
+                          value.title
+                            .toLowerCase()
+                            .includes(searchTerm.toLocaleLowerCase()) ||
+                          value.genre
+                            .toLowerCase()
+                            .includes(searchTerm.toLocaleLowerCase()) ||
+                          value.developer
+                            .toLowerCase()
+                            .includes(searchTerm.toLocaleLowerCase())
+                        ) {
+                          return value;
+                        }
+                      })
+                      .map((gameData) => (
+                        <>
+                          <GamesDisplay data={gameData} key={gameData.id} />
+                        </>
+                      ))}
+                  </Row>
+                </Col>
+              </Col>
+            </>
+          )}
           <Col sm={12} style={{ paddingBottom: "2rem" }}>
             <ReactPaginate
               breakLabel="..."
-              nextLabel="Next >"
+              nextLabel=">"
               onPageChange={handlePageClick}
               pageRangeDisplayed={3}
               pageCount={pageCount}
-              previousLabel="< Prev"
+              previousLabel="<"
               renderOnZeroPageCount={null}
               containerClassName="pagination"
               pageLinkClassName={
