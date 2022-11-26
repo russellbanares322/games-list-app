@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useContext } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import GamesData from "./pages/GamesData";
 import { GameContext } from "./Context/GameContext";
 
