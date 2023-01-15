@@ -57,11 +57,9 @@ const GamesData = () => {
           <div className="d-flex justify-content-end pt-4">
             <Button
               variant={isDarkMode ? "dark" : "light"}
-              style={{ borderRadius: "5rem" }}
+              style={{ borderRadius: "8rem", marginRight: "1.4rem" }}
               onClick={handleToggleTheme}
             >
-              {isDarkMode ? "Dark Mode" : "Light Mode"}
-
               {isDarkMode ? (
                 <MdModeNight size={25} color="dark" className="mx-1" />
               ) : (

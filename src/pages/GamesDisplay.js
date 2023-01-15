@@ -4,7 +4,6 @@ import { GameContext } from "../Context/GameContext";
 
 const GamesDisplay = ({ data }) => {
   const { isDarkMode } = useContext(GameContext);
-
   return (
     <>
       <Col sm={4} style={{ marginTop: "5rem" }}>
