@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
-import { Card, Col, Badge, Container } from "react-bootstrap";
+import { Card, Badge, Container } from "react-bootstrap";
 import { GameContext } from "../Context/GameContext";
 
 const GamesDisplay = ({ data }) => {
   const { isDarkMode } = useContext(GameContext);
+
   return (
     <>
-      <Col sm={4} style={{ marginTop: "5rem" }}>
+      <div style={{ marginTop: "5rem" }}>
         <Container className="d-flex justify-content-center">
           <Card
             className={isDarkMode ? "my-5 card_light" : "my-5 card_dark"}
@@ -72,7 +73,7 @@ const GamesDisplay = ({ data }) => {
             </Card.Footer>
           </Card>
         </Container>
-      </Col>
+      </div>
     </>
   );
 };

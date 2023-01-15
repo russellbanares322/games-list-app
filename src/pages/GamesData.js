@@ -99,35 +99,34 @@ const GamesData = () => {
             </div>
           ) : (
             <>
-              <Col className="d-flex justify-content-center">
-                <Col sm={12}>
-                  <Row>
-                    {currentItems
-                      .filter((value) => {
-                        if (searchTerm === "") {
-                          return value;
-                        } else if (
-                          value.title
-                            .toLowerCase()
-                            .includes(searchTerm.toLocaleLowerCase()) ||
-                          value.genre
-                            .toLowerCase()
-                            .includes(searchTerm.toLocaleLowerCase()) ||
-                          value.developer
-                            .toLowerCase()
-                            .includes(searchTerm.toLocaleLowerCase())
-                        ) {
-                          return value;
-                        }
-                      })
-                      .map((gameData) => (
-                        <>
-                          <GamesDisplay data={gameData} key={gameData.id} />
-                        </>
-                      ))}
-                  </Row>
-                </Col>
-              </Col>
+              <Row xl={3} lg={3} md={2} sm={1}>
+                {currentItems
+                  .filter((value) => {
+                    if (searchTerm === "") {
+                      return value;
+                    } else if (
+                      value.title
+                        .toLowerCase()
+                        .includes(searchTerm.toLocaleLowerCase()) ||
+                      value.genre
+                        .toLowerCase()
+                        .includes(searchTerm.toLocaleLowerCase()) ||
+                      value.developer
+                        .toLowerCase()
+                        .includes(searchTerm.toLocaleLowerCase())
+                    ) {
+                      return value;
+                    }
+                  })
+                  .map((gameData) => (
+                    <Col
+                      key={gameData.id}
+                      className="d-flex justify-content-center"
+                    >
+                      <GamesDisplay data={gameData} />
+                    </Col>
+                  ))}
+              </Row>
             </>
           )}
           <Col sm={12} style={{ paddingBottom: "2rem" }}>
