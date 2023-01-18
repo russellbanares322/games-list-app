@@ -2,14 +2,14 @@ import "./App.css";
 import React, { useContext } from "react";
 import { Container } from "react-bootstrap";
 import GamesData from "./pages/GamesData";
-import { GameContext } from "./Context/GameContext";
+import { GameContext } from "./context/GameContext";
 
 function App() {
-  const { isDarkMode } = useContext(GameContext);
+  const { currentTheme } = useContext(GameContext);
   return (
     <Container
       fluid
-      className={isDarkMode ? "bg_light" : "bg_dark"}
+      className={currentTheme ? "bg_light" : "bg_dark"}
       style={{ paddingBottom: "17.8rem" }}
     >
       <GamesData />

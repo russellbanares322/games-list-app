@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
 import { Card, Badge, Container } from "react-bootstrap";
-import { GameContext } from "../Context/GameContext";
+import { GameContext } from "../context/GameContext";
 
 const GamesDisplay = ({ data }) => {
-  const { isDarkMode } = useContext(GameContext);
+  const { currentTheme } = useContext(GameContext);
 
   return (
     <>
       <div style={{ marginTop: "5rem" }}>
         <Container className="d-flex justify-content-center">
           <Card
-            className={isDarkMode ? "my-5 card_light" : "my-5 card_dark"}
+            className={currentTheme ? "my-5 card_light" : "my-5 card_dark"}
             style={
-              isDarkMode
+              currentTheme
                 ? {
                     width: "21rem",
                     height: "600px",
@@ -52,7 +52,7 @@ const GamesDisplay = ({ data }) => {
               >
                 <small
                   style={
-                    isDarkMode
+                    currentTheme
                       ? {
                           color: "#211D3B",
                           fontStyle: "italic",
