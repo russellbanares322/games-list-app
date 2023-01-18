@@ -47,7 +47,7 @@ const GamesData = () => {
             paddingBottom: "30rem",
           }}
         >
-          <PacmanLoader size={80} color={color} />
+          <PacmanLoader size={79} color={color} />
         </div>
       ) : (
         <>
