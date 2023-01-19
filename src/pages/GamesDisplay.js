@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Card, Badge, Container } from "react-bootstrap";
-import { GameContext } from "../context/GameContext";
+import { GameContext } from "../Context/GameContext";
 
 const GamesDisplay = ({ data }) => {
   const { currentTheme } = useContext(GameContext);
