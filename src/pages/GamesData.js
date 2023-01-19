@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Col, Form, Row, Image } from "react-bootstrap";
 import { PacmanLoader, RingLoader } from "react-spinners";
-import { GameContext } from "../Context/GameContext";
+import { GameContext } from "../context/GameContext";
 import GamesDisplay from "./GamesDisplay";
 import { MdModeNight, MdLightMode } from "react-icons/md";
 import ReactPaginate from "react-paginate";

@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useContext } from "react";
 import { Container } from "react-bootstrap";
 import GamesData from "./pages/GamesData";
-import { GameContext } from "./Context/GameContext";
+import { GameContext } from "./context/GameContext";
 
 function App() {
   const { currentTheme } = useContext(GameContext);
