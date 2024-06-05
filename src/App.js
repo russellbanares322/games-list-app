@@ -1,7 +1,5 @@
 import "./App.css";
 import React, { useContext } from "react";
-import { Container } from "react-bootstrap";
-import GamesData from "./components/GamesData";
 import { GameContext } from "./context/GameContext";
 import { Home } from "./pages";
 
