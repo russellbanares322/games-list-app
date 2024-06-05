@@ -1,31 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Chakra+Petch:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Chakra+Petch:wght@700&display=swap");
 * {
-  font-family: 'Prompt', sans-serif;
+  font-family: "Prompt", sans-serif;
 }
-.bg_light{
+.bg_light {
   padding-bottom: 5rem;
-  background-image: url('./images/bg_light.svg');
+  background-image: url("./images/bg_light.svg");
   background-size: cover;
 }
-.bg_dark{
+.bg_dark {
   padding-bottom: 5rem;
-  background-image: url('./images/bg_dark.svg');
+  background-image: url("./images/bg_dark.svg");
   background-size: cover;
 }
 
 .card_dark {
-  background-color: #211D3B !important;
+  background-color: #211d3b !important;
   -webkit-box-shadow: -12px 11px 3px -7px rgba(255, 255, 255, 1);
   -moz-box-shadow: -12px 11px 3px -7px rgba(255, 255, 255, 1);
   box-shadow: -12px 11px 3px -7px rgba(255, 255, 255, 1);
   transition: 0.4s ease-in-out;
 }
 .card_light {
-  background-color: #FFFFFF !important;
-  -webkit-box-shadow: -12px 11px 3px -7px #211D3B ;
-  -moz-box-shadow: -12px 11px 3px -7px #211D3B ;
-  box-shadow: -12px 11px 3px -7px #211D3B ;
+  background-color: #ffffff !important;
+  -webkit-box-shadow: -12px 11px 3px -7px #211d3b;
+  -moz-box-shadow: -12px 11px 3px -7px #211d3b;
+  box-shadow: -12px 11px 3px -7px #211d3b;
   transition: 0.4s ease-in-out;
 }
 
@@ -36,23 +36,23 @@
 .title_text_dark {
   text-shadow: -3px 1px 2px rgb(0, 0, 0);
   text-transform: uppercase;
-  font-family: 'Chakra Petch', sans-serif;
+  font-family: "Chakra Petch", sans-serif;
   font-weight: 600;
   letter-spacing: 2px;
-  color:#211D3B;
+  color: #211d3b;
 }
 .title_text_light {
   text-shadow: -3px 1px 2px rgba(66, 68, 90, 1);
   text-transform: uppercase;
-  font-family: 'Chakra Petch', sans-serif;
+  font-family: "Chakra Petch", sans-serif;
   font-weight: 600;
   letter-spacing: 2px;
-  color:#F3F3F3;
+  color: #f3f3f3;
 }
 
 /* Pagination */
 
-.pagination{
+.pagination {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,56 +64,55 @@ ul.pagination li a {
   text-decoration: none;
 }
 
-
 .pagination .page_num_dark {
   padding: 8px 15px;
   cursor: pointer;
   border-radius: 3px;
   font-weight: 400;
-  color:  #211D3B;
+  color: #211d3b;
 }
 .pagination .page_num_light {
   padding: 8px 15px;
   cursor: pointer;
   border-radius: 3px;
   font-weight: 400;
-  color: #F3F3F3;
+  color: #f3f3f3;
 }
 
 .pagination .page_num_dark:hover {
-  background-color: #211D3B;
-  color: #F3F3F3;
+  background-color: #211d3b;
+  color: #f3f3f3;
 }
 .pagination .page_num_light:hover {
-  background-color: #211D3B;
+  background-color: #211d3b;
 }
 
 .pagination .page_active_light {
-  background-color: #211D3B;
+  background-color: #211d3b;
 }
 .pagination .page_active_dark {
-  background-color: #211D3B;
-  color: #F3F3F3;
+  background-color: #211d3b;
+  color: #f3f3f3;
 }
 /* Filter Button */
-.filter-container button{
-margin-top: 2rem;
-margin-right: 0.5rem;
-min-width: 5rem;
-padding: 0.5rem 1rem;
-background: white;
-color: rgb(65, 98, 168);
-border-radius: 1rem;
-border: 2px solid rgb(65, 98, 168);
-font-weight: bold;
-cursor: pointer;
+.filter-container button {
+  margin-top: 2rem;
+  margin-right: 0.5rem;
+  min-width: 5rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  color: rgb(65, 98, 168);
+  border-radius: 1rem;
+  border: 2px solid rgb(65, 98, 168);
+  font-weight: bold;
+  cursor: pointer;
 }
-button.active{
+button.active {
   background: rgb(65, 98, 168);
   color: white;
 }
 .toggle_parent {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 3.3rem;
@@ -133,10 +132,16 @@ button.active{
   transition: all 0.3s ease-in-out;
 }
 
+.container {
+  max-width: "1400px";
+  margin-left: "auto";
+  margin-right: "auto";
+}
+
 /* Media Queries */
 
-@media all and (max-width:500px){
-  .pagination{
+@media all and (max-width: 500px) {
+  .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -155,4 +160,4 @@ button.active{
   margin-top: 1rem;
   width: 6rem;
   height: 5rem;
- }
+}

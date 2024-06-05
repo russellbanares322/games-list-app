@@ -38,7 +38,6 @@ export const GameContextProvider = (props) => {
       axios
         .request(options)
         .then((response) => {
-          console.log(response.data);
           setData(response.data);
           localStorage.setItem("gameData", JSON.stringify(response.data));
           setIsLoading(false);

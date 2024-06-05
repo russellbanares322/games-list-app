@@ -1,15 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Col, Form, Row, Image } from "react-bootstrap";
 import { PacmanLoader, RingLoader } from "react-spinners";
-import { GameContext } from "../Context/GameContext";
 import GamesDisplay from "./GamesDisplay";
-import { MdModeNight, MdLightMode } from "react-icons/md";
 import ReactPaginate from "react-paginate";
 import logo from "../images/logo.png";
+import { GameContext } from "../context/GameContext";
+import ThemeToggle from "./ThemeToggle";
 
 const GamesData = () => {
-  const { data, isLoading, handleToggleTheme, currentTheme } =
-    useContext(GameContext);
+  const { data, isLoading, currentTheme } = useContext(GameContext);
   const [color] = useState("#EAE800");
   const [currentItems, setCurrentItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -44,7 +43,6 @@ const GamesData = () => {
             justifyContent: "center",
             alignItems: "center",
             paddingTop: "13rem",
-            paddingBottom: "30rem",
           }}
         >
           <PacmanLoader size={79} color={color} />
@@ -55,29 +53,7 @@ const GamesData = () => {
             <Image src={logo} className="logo" />
           </div>
           <div className="d-flex justify-content-end">
-            <span
-              className="toggle_parent"
-              style={{ backgroundColor: currentTheme ? "#080325" : "#DADCE0" }}
-            >
-              <span
-                onClick={handleToggleTheme}
-                className="toggle_button"
-                style={{
-                  left: currentTheme ? "-1rem" : "0.6rem",
-                  backgroundColor: currentTheme ? " #DADCE0" : "#080325",
-                }}
-              >
-                {currentTheme ? (
-                  <MdLightMode size={15} color="dark" className="mx-1 mb-1" />
-                ) : (
-                  <MdModeNight
-                    size={15}
-                    color="#DADCE0"
-                    className="mx-1 mb-1"
-                  />
-                )}
-              </span>
-            </span>
+            <ThemeToggle />
           </div>
           <h1
             className={

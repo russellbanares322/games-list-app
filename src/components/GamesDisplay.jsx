@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Card, Badge, Container } from "react-bootstrap";
-import { GameContext } from "../Context/GameContext";
+import { GameContext } from "../context/GameContext";
 
 const GamesDisplay = ({ data }) => {
   const { currentTheme } = useContext(GameContext);
@@ -27,26 +27,26 @@ const GamesDisplay = ({ data }) => {
                   }
             }
           >
-            <Card.Img variant="top" src={data.thumbnail} />
+            <Card.Img variant="top" src={data?.thumbnail} />
             <Card.Body>
-              <Card.Title className="text-center">{data.title}</Card.Title>
+              <Card.Title className="text-center">{data?.title}</Card.Title>
               <Card.Text className="text-center">
                 <small>
                   Category:
-                  <span style={{ fontWeight: "bold" }}>{data.genre}</span>
+                  <span style={{ fontWeight: "bold" }}>{data?.genre}</span>
                 </small>
               </Card.Text>
               <div>
                 <small>
-                  <Badge className="text-white mb-2">{data.developer}</Badge>
+                  <Badge className="text-white mb-2">{data?.developer}</Badge>
                 </small>
               </div>
               <div className="mb-1">
-                <small>{data.short_description}</small>
+                <small>{data?.short_description}</small>
               </div>
               <br />
               <Card.Link
-                href={data.game_url}
+                href={data?.game_url}
                 style={{ textDecoration: "none" }}
                 target="_blank"
               >
@@ -63,13 +63,13 @@ const GamesDisplay = ({ data }) => {
                         }
                   }
                 >
-                  {data.game_url}
+                  {data?.game_url}
                 </small>
               </Card.Link>
               <br />
             </Card.Body>
             <Card.Footer className="text-muted">
-              Release Date: {data.release_date}
+              Release Date: {data?.release_date}
             </Card.Footer>
           </Card>
         </Container>
