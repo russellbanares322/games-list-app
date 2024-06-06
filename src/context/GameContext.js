@@ -8,6 +8,8 @@ const {
 
 export const GameContext = createContext();
 
+// Implement best practices
+
 export const GameContextProvider = (props) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
