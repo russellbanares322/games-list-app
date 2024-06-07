@@ -16,10 +16,7 @@ const GamesData = () => {
   const [itemOffset, setItemOffset] = useState(0);
   const [loading, setLoading] = useState(false);
   const itemsPerPage = 6;
-  const emptySearchQuery =
-    !loading && searchTerm.trim().length > 0 && currentItems?.length === 0;
 
-  console.log(emptySearchQuery);
   //Pagination
   useEffect(() => {
     setLoading(false);
