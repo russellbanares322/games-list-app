@@ -69,20 +69,20 @@ const GamesData = () => {
             Games List
           </h1>
           <div className="mx-auto d-flex justify-content-center pt-5">
+            <div></div>
             <Col sm={5}>
-              <Form>
-                <Form.Control
-                  type="search"
-                  placeholder="Search game..."
-                  aria-label="Search"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  style={{
-                    borderRadius: "3rem",
-                    height: "2.8rem",
-                  }}
-                />
-              </Form>
+              <Form.Control
+                type="search"
+                placeholder="Search game..."
+                aria-label="Search"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                style={{
+                  borderRadius: "3rem",
+                  height: "2.8rem",
+                }}
+                autoFocus
+              />
             </Col>
           </div>
           {loading ? (

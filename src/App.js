@@ -11,6 +11,7 @@ function App() {
       style={{
         minHeight: "100vh",
         height: "100%",
+        overflowX: "hidden",
       }}
     >
       <Home />
