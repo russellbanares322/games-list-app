@@ -18,7 +18,7 @@ const ThemeToggle = () => {
         className="toggle_button"
         style={{
           left: isDarkMode ? "-1rem" : "0.6rem",
-          backgroundColor: isDarkMode ? " #DADCE0" : "#080325",
+          backgroundColor: isDarkMode ? " #080325" : "#DADCE0",
         }}
       >
         {isDarkMode ? (

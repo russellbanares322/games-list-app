@@ -12,9 +12,14 @@ export const GameContextProvider = (props) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const isDarkMode = JSON.parse(localStorage.getItem("isDarkMode"));
+  const isThemeUnset = isDarkMode === null || isDarkMode === undefined;
+  const [darkModeTheme, setDarkModeTheme] = useState(
+    isThemeUnset ? false : isDarkMode
+  );
 
   const handleToggleTheme = () => {
-    localStorage.setItem("isDarkMode", JSON.stringify(!isDarkMode));
+    setDarkModeTheme(!darkModeTheme);
+    localStorage.setItem("isDarkMode", JSON.stringify(darkModeTheme));
   };
 
   const handleFetchGameData = () => {
@@ -51,10 +56,10 @@ export const GameContextProvider = (props) => {
 
   // Set page theme if it is not defined
   useEffect(() => {
-    if (isDarkMode === null || isDarkMode === undefined) {
-      localStorage.setItem("isDarkMode", JSON.stringify(false));
+    if (isThemeUnset) {
+      localStorage.setItem("isDarkMode", JSON.stringify(darkModeTheme));
     }
-  }, [isDarkMode]);
+  }, [darkModeTheme, isThemeUnset]);
 
   return (
     <GameContext.Provider
