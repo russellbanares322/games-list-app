@@ -4,10 +4,10 @@ import { GameContext } from "./context/GameContext";
 import { Home } from "./pages";
 
 function App() {
-  const { currentTheme } = useContext(GameContext);
+  const { isDarkMode } = useContext(GameContext);
   return (
     <div
-      className={`${currentTheme ? "bg_light" : "bg_dark"}`}
+      className={`${isDarkMode ? "bg_dark" : "bg_light"}`}
       style={{
         minHeight: "100vh",
         height: "100%",

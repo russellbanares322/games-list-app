@@ -3,26 +3,26 @@ import { Card, Badge, Container } from "react-bootstrap";
 import { GameContext } from "../context/GameContext";
 
 const GamesDisplay = ({ data }) => {
-  const { currentTheme } = useContext(GameContext);
+  const { isDarkMode } = useContext(GameContext);
 
   return (
     <>
       <div style={{ marginTop: "5rem" }}>
         <Container className="d-flex justify-content-center">
           <Card
-            className={currentTheme ? "my-5 card_light" : "my-5 card_dark"}
+            className={`${isDarkMode ? "card_dark" : "card_light"} my-5`}
             style={
-              currentTheme
+              isDarkMode
                 ? {
                     width: "21rem",
                     height: "600px",
-                    color: "#211D3B",
+                    color: "#FFFFFF",
                     borderRadius: "2rem",
                   }
                 : {
                     width: "21rem",
                     height: "600px",
-                    color: "#FFFFFF",
+                    color: "#211D3B",
                     borderRadius: "2rem",
                   }
             }
@@ -52,13 +52,13 @@ const GamesDisplay = ({ data }) => {
               >
                 <small
                   style={
-                    currentTheme
+                    isDarkMode
                       ? {
-                          color: "#211D3B",
+                          color: "#FFFFFF",
                           fontStyle: "italic",
                         }
                       : {
-                          color: "#FFFFFF",
+                          color: "#211D3B",
                           fontStyle: "italic",
                         }
                   }

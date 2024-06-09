@@ -8,7 +8,7 @@ import { GameContext } from "../context/GameContext";
 import ThemeToggle from "./ThemeToggle";
 
 const GamesData = () => {
-  const { data, isLoading, currentTheme } = useContext(GameContext);
+  const { data, isLoading, isDarkMode } = useContext(GameContext);
   const [color] = useState("#EAE800");
   const [currentItems, setCurrentItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -34,6 +34,18 @@ const GamesData = () => {
     }, 1000);
   };
 
+  const currentItemsSearchFilter = (value) => {
+    if (searchTerm === "") {
+      return value;
+    } else if (
+      value.title.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+      value.genre.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+      value.developer.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+    ) {
+      return value;
+    }
+  };
+
   return (
     <>
       {isLoading ? (
@@ -57,7 +69,7 @@ const GamesData = () => {
           </div>
           <h1
             className={
-              currentTheme
+              !isDarkMode
                 ? "text-center pt-5 title_text_dark"
                 : "text-center pt-5 title_text_light"
             }
@@ -90,23 +102,7 @@ const GamesData = () => {
             <>
               <Row xl={3} lg={3} md={2} sm={1}>
                 {currentItems
-                  .filter((value) => {
-                    if (searchTerm === "") {
-                      return value;
-                    } else if (
-                      value.title
-                        .toLowerCase()
-                        .includes(searchTerm.toLocaleLowerCase()) ||
-                      value.genre
-                        .toLowerCase()
-                        .includes(searchTerm.toLocaleLowerCase()) ||
-                      value.developer
-                        .toLowerCase()
-                        .includes(searchTerm.toLocaleLowerCase())
-                    ) {
-                      return value;
-                    }
-                  })
+                  .filter(currentItemsSearchFilter)
                   .map((gameData) => (
                     <Col
                       key={gameData.id}
@@ -129,16 +125,16 @@ const GamesData = () => {
               renderOnZeroPageCount={null}
               containerClassName="pagination"
               pageLinkClassName={
-                currentTheme ? "page_num_dark" : "page_num_light"
+                !isDarkMode ? "page_num_dark" : "page_num_light"
               }
               previousLinkClassName={
-                currentTheme ? "page_num_dark" : "page_num_light"
+                !isDarkMode ? "page_num_dark" : "page_num_light"
               }
               nextLinkClassName={
-                currentTheme ? "page_num_dark" : "page_num_light"
+                !isDarkMode ? "page_num_dark" : "page_num_light"
               }
               activeLinkClassName={
-                currentTheme ? "page_active_dark" : "page_active_light"
+                !isDarkMode ? "page_active_dark" : "page_active_light"
               }
             />
           </Col>

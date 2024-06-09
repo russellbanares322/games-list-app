@@ -8,17 +8,13 @@ const {
 
 export const GameContext = createContext();
 
-// Implement best practices
-
 export const GameContextProvider = (props) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const currentTheme = JSON.parse(localStorage.getItem("theme"));
+  const isDarkMode = JSON.parse(localStorage.getItem("isDarkMode"));
 
   const handleToggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    localStorage.setItem("theme", JSON.stringify(isDarkMode));
+    localStorage.setItem("isDarkMode", JSON.stringify(!isDarkMode));
   };
 
   const handleFetchGameData = () => {
@@ -53,13 +49,19 @@ export const GameContextProvider = (props) => {
     handleFetchGameData();
   }, []);
 
+  // Set page theme if it is not defined
+  useEffect(() => {
+    if (isDarkMode === null || isDarkMode === undefined) {
+      localStorage.setItem("isDarkMode", JSON.stringify(false));
+    }
+  }, [isDarkMode]);
+
   return (
     <GameContext.Provider
       value={{
         data,
         isLoading,
-        currentTheme,
-        setIsDarkMode,
+        isDarkMode,
         handleToggleTheme,
       }}
     >
