@@ -19,7 +19,7 @@ export const GameContextProvider = (props) => {
 
   const handleToggleTheme = () => {
     setDarkModeTheme(!darkModeTheme);
-    localStorage.setItem("isDarkMode", JSON.stringify(darkModeTheme));
+    localStorage.setItem("isDarkMode", JSON.stringify(!darkModeTheme));
   };
 
   const handleFetchGameData = () => {
@@ -59,7 +59,7 @@ export const GameContextProvider = (props) => {
     if (isThemeUnset) {
       localStorage.setItem("isDarkMode", JSON.stringify(darkModeTheme));
     }
-  }, [darkModeTheme, isThemeUnset]);
+  }, [isThemeUnset]);
 
   return (
     <GameContext.Provider
