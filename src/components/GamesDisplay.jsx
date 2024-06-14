@@ -5,6 +5,7 @@ import { GameContext } from "../context/GameContext";
 const GamesDisplay = ({ data }) => {
   const { isDarkMode } = useContext(GameContext);
 
+  // Implement something
   return (
     <>
       <div style={{ marginTop: "5rem" }}>

@@ -78,7 +78,6 @@ const GamesData = () => {
             Games List
           </h1>
           <div className="mx-auto d-flex justify-content-center pt-5">
-            <div></div>
             <Col sm={5}>
               <Form.Control
                 type="search"
