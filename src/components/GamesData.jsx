@@ -11,7 +11,7 @@ const GamesData = () => {
   const { data, isLoading, isDarkMode } = useContext(GameContext);
   const [color] = useState("#EAE800");
   const [currentItems, setCurrentItems] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [search, setSearch] = useState("");
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -34,13 +34,17 @@ const GamesData = () => {
     }, 1000);
   };
 
+  const filterValueBySearchTerm = (itemToBeSearch) => {
+    return itemToBeSearch.toLowerCase().includes(search.toLowerCase());
+  };
+
   const currentItemsSearchFilter = (value) => {
-    if (searchTerm === "") {
+    if (search === "") {
       return value;
     } else if (
-      value.title.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
-      value.genre.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
-      value.developer.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+      filterValueBySearchTerm(value?.title) ||
+      filterValueBySearchTerm(value?.genre) ||
+      filterValueBySearchTerm(value?.developer)
     ) {
       return value;
     }
@@ -83,8 +87,8 @@ const GamesData = () => {
                 type="search"
                 placeholder="Search game..."
                 aria-label="Search"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
                 style={{
                   borderRadius: "3rem",
                   height: "2.8rem",

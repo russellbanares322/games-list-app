@@ -5,28 +5,32 @@ import { GameContext } from "../context/GameContext";
 const GamesDisplay = ({ data }) => {
   const { isDarkMode } = useContext(GameContext);
 
-  // Implement something
+  const getStyleAndClassName = () => {
+    return {
+      className: `${isDarkMode ? "card_dark" : "card_light"} my-5`,
+      style: isDarkMode
+        ? {
+            width: "21rem",
+            height: "600px",
+            color: "#FFFFFF",
+            borderRadius: "2rem",
+          }
+        : {
+            width: "21rem",
+            height: "600px",
+            color: "#211D3B",
+            borderRadius: "2rem",
+          },
+    };
+  };
+
   return (
     <>
       <div style={{ marginTop: "5rem" }}>
         <Container className="d-flex justify-content-center">
           <Card
-            className={`${isDarkMode ? "card_dark" : "card_light"} my-5`}
-            style={
-              isDarkMode
-                ? {
-                    width: "21rem",
-                    height: "600px",
-                    color: "#FFFFFF",
-                    borderRadius: "2rem",
-                  }
-                : {
-                    width: "21rem",
-                    height: "600px",
-                    color: "#211D3B",
-                    borderRadius: "2rem",
-                  }
-            }
+            className={getStyleAndClassName().className}
+            style={getStyleAndClassName().style}
           >
             <Card.Img variant="top" src={data?.thumbnail} />
             <Card.Body>
