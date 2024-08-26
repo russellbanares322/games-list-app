@@ -6,6 +6,7 @@ import ReactPaginate from "react-paginate";
 import logo from "../images/logo.png";
 import { GameContext } from "../context/GameContext";
 import ThemeToggle from "./ThemeToggle";
+import { IoIosSearch } from "react-icons/io";
 
 const GamesData = () => {
   const { data, isLoading, isDarkMode } = useContext(GameContext);
@@ -49,6 +50,8 @@ const GamesData = () => {
       return value;
     }
   };
+
+  const filteredCurrentItems = currentItems.filter(currentItemsSearchFilter);
 
   return (
     <>
@@ -103,10 +106,9 @@ const GamesData = () => {
             </div>
           ) : (
             <>
-              <Row xl={3} lg={3} md={2} sm={1}>
-                {currentItems
-                  .filter(currentItemsSearchFilter)
-                  .map((gameData) => (
+              {filteredCurrentItems?.length > 0 ? (
+                <Row xl={3} lg={3} md={2} sm={1}>
+                  {filteredCurrentItems.map((gameData) => (
                     <Col
                       key={gameData.id}
                       className="d-flex justify-content-center"
@@ -114,7 +116,29 @@ const GamesData = () => {
                       <GamesDisplay data={gameData} />
                     </Col>
                   ))}
-              </Row>
+                </Row>
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginTop: "60px",
+                  }}
+                >
+                  <IoIosSearch size={50} />
+                  <p style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
+                    No Results Found
+                  </p>
+                  <small style={{ fontSize: "0.8rem", color: "gray" }}>
+                    We couldn't find what you searched for.
+                  </small>
+                  <small style={{ fontSize: "0.8rem", color: "gray" }}>
+                    Try searching again.
+                  </small>
+                </div>
+              )}
             </>
           )}
           <Col sm={12} style={{ paddingBottom: "2rem" }}>
